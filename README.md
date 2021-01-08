@@ -1,16 +1,13 @@
-# shoes_app
+# Shoes App
 
-A new Flutter project.
+Combine with GetX, include with sample data.
+Feel free to clone my repo. :)
+## Installation
+Add Flutter to your machine
 
-## Getting Started
+Open this project folder with Terminal/CMD and run flutter packages get
 
-This project is a starting point for a Flutter application.
+Run flutter run to build and run the debug app on your emulator/phone
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## UI
+![Home](screenshots/1.png)
