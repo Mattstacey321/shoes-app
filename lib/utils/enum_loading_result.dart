@@ -1,0 +1,1 @@
+enum LoadingResult {loading, success, fail}

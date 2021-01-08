@@ -4,4 +4,5 @@ class Routes {
   static const FAVOURITE = "/favourite";
   static const BAG = "/bag";
   static const PROFILE = "/profile";
+  static const PRODUCTDETAIL = "/product-detail";
 }
