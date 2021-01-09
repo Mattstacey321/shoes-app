@@ -13,4 +13,6 @@ Run flutter run to build and run the debug app on your emulator/phone
 - [ ] Animation
 - [X] Minimal function
 ## Screenshot
-![Home](screenshots/1.png) | ![Shoes Detail](screenshots/shoes_detail.png) | ![Favourite](screenshots/favourite_page.png) | ![Bag](screenshots/bag_page.png) | ![Profile](screenshots/profile_page.png)
+| ![Home](screenshots/1.png) | ![Shoes Detail](screenshots/shoes_detail.png) | ![Favourite](screenshots/favourite_page.png) | 
+
+| ![Bag](screenshots/bag_page.png) | ![Profile](screenshots/profile_page.png) |
