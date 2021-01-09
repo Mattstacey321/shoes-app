@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoes_app/constants/app_get_id.dart';
 import 'package:shoes_app/models/shoes_galeries.dart';
 
 import '../product_detail_controller.dart';
@@ -9,7 +10,7 @@ class ShoesGaleryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ProductDetailController>(
         assignId: true,
-        id: "shoes-galeries",
+        id: AppGetId.SHOESGALERY,
         builder: (controller) {
           List<ShoesGalery> galeries = controller.shoesGaleries;
           int galeryCount = controller.shoesGaleries.length;

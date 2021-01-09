@@ -1,6 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoes_app/constants/app_get_id.dart';
 import 'package:shoes_app/constants/app_setting.dart';
 import 'package:shoes_app/modules/product_detail/product_detail_controller.dart';
 import 'package:shoes_app/modules/product_detail/widgets/shoes_info.dart';
@@ -16,7 +17,7 @@ class ProductDetail extends StatelessWidget {
     final prodId = Get.arguments as String;
     return GetBuilder<ProductDetailController>(
       init: ProductDetailController(prodId),
-      id: "shoes-detail",
+      id: AppGetId.SHOESDETAIL,
       assignId: true,
       builder: (controller) {
         return SafeArea(

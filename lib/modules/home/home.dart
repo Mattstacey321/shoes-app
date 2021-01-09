@@ -1,7 +1,9 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoes_app/constants/app_get_id.dart';
 import 'package:shoes_app/models/shoes_model.dart';
+import 'package:shoes_app/modules/favourite/favourite_controller.dart';
 import 'package:shoes_app/modules/home/home_controller.dart';
 import 'package:shoes_app/modules/home/widgets/rounded_tab_indicator.dart';
 import 'package:shoes_app/routes/routes.dart';
@@ -14,6 +16,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       init: HomeController(),
+      assignId: true,
+      id: AppGetId.HOME,
       builder: (controller) => DefaultTabController(
         length: controller.availableBrands.length,
         child: Scaffold(
@@ -27,7 +31,9 @@ class HomePage extends StatelessWidget {
                 child: Icon(EvaIcons.searchOutline),
               ),
               CustomAvatar(
-                onTap: () {},
+                onTap: () {
+                  controller.goToProfilePage();
+                },
                 size: 30,
               ),
               GestureDetector(
@@ -85,9 +91,11 @@ class HomePage extends StatelessWidget {
                               final shoes = controller.listShoes[index];
                               return ShoesItem(
                                 shoes: shoes,
-                                onBookmark: () {},
+                                onBookmark: () {
+                                  controller.bookmarkShoes(shoes.prodId);
+                                },
                                 onTap: () {
-                                  Get.toNamed(Routes.PRODUCTDETAIL,arguments: shoes.prodId);
+                                  Get.toNamed(Routes.PRODUCTDETAIL, arguments: shoes.prodId);
                                 },
                               );
                             },
@@ -170,6 +178,7 @@ class ShoesItem extends StatelessWidget {
     String price = shoes.price.toString();
     String prodName = shoes.name;
     Color mainColor = shoes.mainColor;
+    bool isBookmark = FavouriteController.to.listFavouriteShoes.any((element) => element.shoes.prodId == shoes.prodId);
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -190,6 +199,7 @@ class ShoesItem extends StatelessWidget {
                 ),
                 Spacer(),
                 Icon(EvaIcons.star, color: Colors.white),
+                SizedBox(width: 5),
                 Text(
                   starPoint,
                   style: TextStyle(color: Colors.white),
@@ -225,7 +235,10 @@ class ShoesItem extends StatelessWidget {
                 ),
                 Spacer(),
                 CircleIcon(
-                    child: Icon(EvaIcons.heartOutline, color: Colors.pink), onTap: onBookmark)
+                  child:
+                      Icon(isBookmark ? EvaIcons.heart : EvaIcons.heartOutline, color: Colors.pink),
+                  onTap: onBookmark,
+                )
               ],
             )
           ],

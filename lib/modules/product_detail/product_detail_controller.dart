@@ -3,6 +3,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:shoes_app/constants/app_get_id.dart';
 import 'package:shoes_app/models/shoes_galeries.dart';
 import 'package:shoes_app/models/shoes_model.dart';
 import 'package:shoes_app/models/shoes_size_model.dart';
@@ -21,6 +22,11 @@ class ProductDetailController extends GetxController {
   var shoesSizes = <ShoesSizeModel>[].obs;
   var loadingResult = LoadingResult.loading.obs;
   LoadingButtonController purchaseButton = LoadingButtonController();
+  
+  // betBuilder id variable
+  static const SHOESDETAIL = AppGetId.SHOESDETAIL;
+  static const SHOESGALERY = AppGetId.SHOESGALERY;
+  static const SHOESSIZE = AppGetId.SHOESSIZE;
 
   void getShoesInfo() async {
     try {
@@ -32,7 +38,7 @@ class ProductDetailController extends GetxController {
       // set first shoes size isClick variable to true
       shoesSizes.assignAll(shoes.value.sizes);
       shoesSizes.first.isClick = true;
-      update(["shoes-galeries"]);
+      update([SHOESDETAIL]);
       loadingResult(LoadingResult.success);
     } catch (e) {
       loadingResult(LoadingResult.fail);
@@ -46,7 +52,7 @@ class ProductDetailController extends GetxController {
       else
         item.isClick = false;
     });
-    update(["shoes-galeries", "shoes-detail"]);
+    update([SHOESGALERY, SHOESDETAIL]);
   }
 
   void changeShoesSize(String id) {
@@ -56,7 +62,7 @@ class ProductDetailController extends GetxController {
       else
         item.isClick = false;
     });
-    update(["shoes-size"]);
+    update([SHOESSIZE]);
   }
 
   void purchaseShoes() async {

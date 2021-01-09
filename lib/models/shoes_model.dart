@@ -14,6 +14,7 @@ class ShoesModel {
   double starPoint;
   Color mainColor;
   List<ShoesGalery> galeries;
+  bool isBookmark = false;
   ShoesModel(
       {this.prodId,
       this.name,

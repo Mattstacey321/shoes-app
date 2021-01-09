@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:shoes_app/models/shoes_bag_model.dart';
 import 'package:shoes_app/modules/bags/bag_controller.dart';
 import 'package:shoes_app/widgets/custom_button.dart';
+import 'package:shoes_app/widgets/slidable_remove_item.dart';
 
 class BagPage extends StatelessWidget {
   @override
@@ -111,6 +112,7 @@ class BagItem extends GetView<BagController> {
     return Slidable(
       key: key,
       actionPane: SlidableDrawerActionPane(),
+      closeOnScroll: true,
       actions: [
         Padding(
           padding: EdgeInsets.only(right: 10),
@@ -128,7 +130,7 @@ class BagItem extends GetView<BagController> {
       secondaryActions: [
         Padding(
           padding: EdgeInsets.only(left: 10),
-          child: RemoveShoes(
+          child: SlidableRemoveItem(
             onRemove: () => controller.onRemove(shoes.prodId),
           ),
         ),
@@ -224,35 +226,6 @@ class AddMoreShoes extends StatelessWidget {
           ),
           SizedBox(height: 5),
           GestureDetector(onTap: onDecrease, child: Icon(EvaIcons.minus, size: 15))
-        ],
-      ),
-    );
-  }
-}
-
-class RemoveShoes extends StatelessWidget {
-  final VoidCallback onRemove;
-  RemoveShoes({this.onRemove});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 40,
-      decoration: BoxDecoration(
-        color: Colors.red,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      padding: EdgeInsets.all(15),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          GestureDetector(
-            onTap: onRemove,
-            child: Icon(
-              EvaIcons.trash2,
-              size: 28,
-              color: Colors.white,
-            ),
-          ),
         ],
       ),
     );

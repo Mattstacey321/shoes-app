@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shoes_app/constants/app_get_id.dart';
 import 'package:shoes_app/models/shoes_size_model.dart';
 import 'package:shoes_app/modules/product_detail/product_detail_controller.dart';
 
@@ -8,7 +9,7 @@ class ShoesSize extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ProductDetailController>(
       assignId: true,
-      id: "shoes-size",
+      id: AppGetId.SHOESSIZE,
       builder: (controller) {
         int totalSize = controller.shoesSizes.length;
         List<ShoesSizeModel> shoesSizes = controller.shoesSizes;
