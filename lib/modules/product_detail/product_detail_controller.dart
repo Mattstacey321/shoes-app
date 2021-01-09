@@ -22,7 +22,7 @@ class ProductDetailController extends GetxController {
   var shoesSizes = <ShoesSizeModel>[].obs;
   var loadingResult = LoadingResult.loading.obs;
   LoadingButtonController purchaseButton = LoadingButtonController();
-  
+
   // betBuilder id variable
   static const SHOESDETAIL = AppGetId.SHOESDETAIL;
   static const SHOESGALERY = AppGetId.SHOESGALERY;
@@ -37,7 +37,6 @@ class ProductDetailController extends GetxController {
       shoesGaleries.addAll(shoes.value.galeries);
       // set first shoes size isClick variable to true
       shoesSizes.assignAll(shoes.value.sizes);
-      shoesSizes.first.isClick = true;
       update([SHOESDETAIL]);
       loadingResult(LoadingResult.success);
     } catch (e) {

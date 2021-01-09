@@ -86,7 +86,7 @@ class HomePage extends StatelessWidget {
                             separatorBuilder: (context, index) => SizedBox(width: 40),
                             itemCount: controller.listShoes.length,
                             scrollDirection: Axis.horizontal,
-                            padding: EdgeInsets.only(left: 20),
+                            padding: EdgeInsets.only(left: 20, right: 10),
                             itemBuilder: (context, index) {
                               final shoes = controller.listShoes[index];
                               return ShoesItem(
@@ -118,7 +118,7 @@ class HomePage extends StatelessWidget {
                           separatorBuilder: (context, index) => SizedBox(width: 20),
                           itemCount: controller.listShoes.length,
                           scrollDirection: Axis.horizontal,
-                          padding: EdgeInsets.only(left: 20),
+                          padding: EdgeInsets.only(left: 20, right: 10),
                           itemBuilder: (context, index) {
                             final shoes = controller.listShoes[index];
                             return ShoesItem(
@@ -178,7 +178,8 @@ class ShoesItem extends StatelessWidget {
     String price = shoes.price.toString();
     String prodName = shoes.name;
     Color mainColor = shoes.mainColor;
-    bool isBookmark = FavouriteController.to.listFavouriteShoes.any((element) => element.shoes.prodId == shoes.prodId);
+    bool isBookmark = FavouriteController.to.listFavouriteShoes
+        .any((element) => element.shoes.prodId == shoes.prodId);
     return InkWell(
       onTap: onTap,
       child: Container(

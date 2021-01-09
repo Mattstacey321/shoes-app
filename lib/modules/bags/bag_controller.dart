@@ -15,14 +15,18 @@ class BagController extends GetxController {
       yourBag
           .add(ShoesBagModel(prodId: shoes.prodId, price: shoes.price, quantity: 1, info: shoes));
     } else {
-      yourBag.forEach((item) {
+      if(!yourBag.any((item) => item.prodId == shoes.prodId)){
+        yourBag.add(
+              ShoesBagModel(prodId: shoes.prodId, price: shoes.price, quantity: 1, info: shoes));
+      }else{
+         yourBag.forEach((item) {
         if (item.prodId == shoes.prodId) {
           item.quantity++;
           item.price += item.quantity * item.price;
-        } else
-          yourBag.add(
-              ShoesBagModel(prodId: shoes.prodId, price: shoes.price, quantity: 1, info: shoes));
+        } 
       });
+      }
+     
     }
     updateTotalMoney(true);
   }
@@ -53,14 +57,4 @@ class BagController extends GetxController {
     update(["your-bag"]);
   }
 
-  @override
-  void onReady() {
-    /*ever(yourBag, (onChange) {
-      print(onChange);
-      yourBag.forEach((item) {
-        _totalMoney.value += item.price;
-      });
-    });*/
-    super.onReady();
-  }
 }

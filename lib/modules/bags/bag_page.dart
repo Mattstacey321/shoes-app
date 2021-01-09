@@ -53,6 +53,7 @@ class BagPage extends StatelessWidget {
                   child: ListView.separated(
                     itemCount: totalItem,
                     separatorBuilder: (context, index) => SizedBox(height: 10),
+                    padding: EdgeInsets.symmetric(vertical: 10),
                     itemBuilder: (context, index) {
                       return BagItem(
                         key: Key(listItem[index].prodId),

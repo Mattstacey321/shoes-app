@@ -12,15 +12,22 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppThemes.lightTheme,
-      darkTheme: AppThemes.darkTheme,
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
-      builder: BotToastInit(),
-      navigatorObservers: [BotToastNavigatorObserver()], 
-      home: SafeArea(child: BasePage()),
+    //disable glow effect from listview, gridview
+    return NotificationListener(
+      onNotification: (OverscrollIndicatorNotification overScroll) {
+        overScroll.disallowGlow();
+        return false;
+      },
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppThemes.lightTheme,
+        darkTheme: AppThemes.darkTheme,
+        initialRoute: AppPages.INITIAL,
+        getPages: AppPages.routes,
+        builder: BotToastInit(),
+        navigatorObservers: [BotToastNavigatorObserver()],
+        home: SafeArea(child: BasePage()),
+      ),
     );
   }
 }
