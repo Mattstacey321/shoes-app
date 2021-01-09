@@ -13,17 +13,18 @@ Run flutter run to build and run the debug app on your emulator/phone
 - [ ] Animation
 - [X] Minimal function
 ## Screenshot
-| ![Home](screenshots/1.png) | ![Shoes Detail](screenshots/shoes_detail.png) | ![Favourite](screenshots/favourite_page.png) | 
-
-| ![Bag](screenshots/bag_page.png) | ![Profile](screenshots/profile_page.png) |
 
 <table style="padding:10px">
   <tr>
     <td> <img src="./screenshots/1.png"  alt="1" width = 279px height = 496px ></td>
    <td><img src="./screenshots/shoes_detail.png" align="right" alt="2" width = 279px height = 496px></td>
    <td><img src="./screenshots/favourite_page.png" alt="3" width = 288px height = 512px></td>
-    <td><img src="./screenshots/bag_page.png" alt="3" width = 288px height = 512px></td>
-    <td><img src="./screenshots/profile_page.png" alt="3" width = 288px height = 512px></td>
+  </tr>
+</table>
 
+<table style="padding:10px">
+  <tr>
+      <td><img src="./screenshots/bag_page.png" alt="4" width = 288px height = 512px></td>
+    <td><img src="./screenshots/profile_page.png" alt="5" width = 288px height = 512px></td>
   </tr>
 </table>
