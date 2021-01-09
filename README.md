@@ -16,7 +16,7 @@ Run flutter run to build and run the debug app on your emulator/phone
 
 <table style="padding:10px">
   <tr>
-    <td> <img src="./screenshots/1.png"  alt="1" width = 279px height = 496px ></td>
+    <td> <img src="./screenshots/1.png"  alt="1" width = 1000px height = 496px ></td>
    <td><img src="./screenshots/shoes_detail.png" align="right" alt="2" width = 279px height = 496px></td>
    <td><img src="./screenshots/favourite_page.png" alt="3" width = 288px height = 512px></td>
   </tr>
